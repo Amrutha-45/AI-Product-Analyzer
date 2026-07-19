@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, AlertTriangle, AlertOctagon, Info, TrendingUp, TrendingDown, Shield } from 'lucide-react';
 import { Card } from '../components/ui/Card';
@@ -24,7 +24,7 @@ const getRiskIcon = (level: string) => {
 };
 
 const FoodResults = ({ data }: { data: FoodScanResult }) => {
-  const nova = data.nova_class ? NovaLabel[data.nova_class] : null;
+
   return (
     <>
       <div className="grid md:grid-cols-3 gap-6 mb-8">

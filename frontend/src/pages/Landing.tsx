@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Zap, ScanLine } from 'lucide-react';
 import { Button } from '../components/ui/Button';
