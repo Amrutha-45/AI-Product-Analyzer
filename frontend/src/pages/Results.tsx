@@ -7,12 +7,7 @@ import { Chip } from '../components/ui/Chip';
 import { Gauge } from '../components/ui/Gauge';
 import { scanService, type ScanResult, type ScoreBreakdownItem, type FoodScanResult, type MedicineScanResult, type CosmeticScanResult, type FertilizerScanResult, type PesticideScanResult, type HouseholdChemicalScanResult, type OtherScanResult } from '../services/api/scanService';
 
-const NovaLabel: Record<number, { label: string; color: string }> = {
-  1: { label: 'Unprocessed', color: 'text-accent' },
-  2: { label: 'Minimally Processed', color: 'text-accent' },
-  3: { label: 'Processed', color: 'text-accent-warning' },
-  4: { label: 'Ultra-Processed', color: 'text-accent-danger' },
-};
+
 
 const getRiskIcon = (level: string) => {
   switch (level) {

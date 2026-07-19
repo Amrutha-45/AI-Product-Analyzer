@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UploadCloud, X } from 'lucide-react';
 import { Button } from '../components/ui/Button';
