@@ -1,0 +1,34 @@
+# Core Framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# Pydantic & Validation
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# Multipart / File Uploads
+python-multipart==0.0.9
+
+# AI Provider
+google-generativeai==0.8.3
+groq==0.11.0
+
+# Database
+supabase==2.9.0
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Image Processing
+Pillow==10.4.0
+easyocr==1.7.2
+opencv-python-headless==4.10.0.84
+
+# HTTP Client (for Open Food Facts)
+httpx==0.27.2
+
+# Hashing & Utilities
+python-dotenv==1.0.1
+
+# Logging
+structlog==24.4.0

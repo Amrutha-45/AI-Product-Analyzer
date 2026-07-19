@@ -1,0 +1,107 @@
+{
+  "title": "ScanResult",
+  "type": "object",
+  "properties": {
+    "product_name": { "type": ["string", "null"] },
+    "brand": { "type": ["string", "null"] },
+    "category": { "type": ["string", "null"] },
+    "barcode": { "type": ["string", "null"] },
+    "manufacturing_date": { "type": ["string", "null"] },
+    "expiry_date": { "type": ["string", "null"] },
+    "batch_number": { "type": ["string", "null"] },
+    "expiry_status": { 
+      "type": "string",
+      "enum": ["valid", "expired", "unclear"]
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "risk_level": {
+            "type": "string",
+            "enum": ["safe", "moderate", "high"]
+          },
+          "explanation": { "type": "string" },
+          "flags": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["name", "risk_level", "explanation", "flags"]
+      }
+    },
+    "allergens": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "health_score": { "type": "number", "minimum": 0, "maximum": 10 },
+    "health_score_reasoning": { "type": "string" },
+    "packaging_analysis": {
+      "type": "object",
+      "properties": {
+        "text_clarity": {
+          "type": "string",
+          "enum": ["clear", "blurry", "inconsistent"]
+        },
+        "barcode_present": { "type": "boolean" },
+        "barcode_format_valid": { "type": "boolean" },
+        "notable_inconsistencies": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["text_clarity", "barcode_present", "barcode_format_valid", "notable_inconsistencies"]
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ai_suggested_improvement": { "type": ["string", "null"] },
+    "ai_summary": { "type": "string" },
+    "overall_confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "confidence_reasoning": { "type": "string" },
+    "scan_id": { "type": "string" },
+    "created_at": { "type": "string" },
+    "source": {
+      "type": "string",
+      "enum": ["ai_extracted", "openfoodfacts_merged"]
+    },
+    "trust_score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "alternatives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string" },
+          "product_name": { "type": ["string", "null"] },
+          "brand": { "type": ["string", "null"] },
+          "reason": { "type": "string" },
+          "off_id": { "type": ["string", "null"] }
+        },
+        "required": ["source", "reason"]
+      }
+    }
+  },
+  "required": [
+    "expiry_status",
+    "ingredients",
+    "allergens",
+    "health_score",
+    "health_score_reasoning",
+    "packaging_analysis",
+    "warnings",
+    "ai_summary",
+    "overall_confidence",
+    "confidence_reasoning",
+    "scan_id",
+    "created_at",
+    "source",
+    "trust_score",
+    "alternatives"
+  ]
+}
