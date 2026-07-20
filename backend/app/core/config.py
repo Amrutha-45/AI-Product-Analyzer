@@ -24,12 +24,13 @@ class Settings(BaseSettings):
     frontend_origin: str = "http://localhost:5173"
 
     # ── AI Provider ───────────────────────────
-    ai_provider: str = Field(default="gemini", description="AI Provider (gemini or groq)")
-    ai_model: str = Field(default="gemini-2.0-flash", description="Model name to use")
+    ai_provider: str = Field(default="openrouter", description="AI Provider (gemini, groq, or openrouter)")
+    ai_model: str = Field(default="google/gemini-2.5-flash", description="Model name to use")
     ai_temperature: float = Field(default=0.0, description="Temperature for generation")
     ai_timeout_seconds: int = Field(default=30, description="Timeout for AI calls")
     gemini_api_key: str | None = Field(default=None)
     groq_api_key: str | None = Field(default=None)
+    openrouter_api_key: str | None = Field(default=None)
 
     # ── Supabase ──────────────────────────────
     supabase_url: str = ""

@@ -12,6 +12,7 @@ python-multipart==0.0.9
 # AI Provider
 google-genai
 groq==0.11.0
+openai==1.52.0
 
 # Database
 supabase==2.9.0

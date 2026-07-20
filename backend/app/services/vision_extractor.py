@@ -39,6 +39,10 @@ def get_vision_provider() -> VisionProvider:
     if provider_name == "groq":
         from app.services.vision_providers.groq_provider import GroqProvider
         return GroqProvider()
+        
+    if provider_name == "openrouter":
+        from app.services.vision_providers.openrouter_provider import OpenRouterProvider
+        return OpenRouterProvider()
 
     # Stub for future providers (e.g. OpenAI GPT-4 Vision)
     raise ValueError(f"Unsupported AI provider: '{provider_name}'. Check AI_PROVIDER in .env")
