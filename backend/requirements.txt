@@ -10,7 +10,7 @@ pydantic-settings==2.5.2
 python-multipart==0.0.9
 
 # AI Provider
-google-generativeai==0.8.3
+google-genai
 groq==0.11.0
 
 # Database
