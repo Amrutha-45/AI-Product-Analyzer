@@ -94,6 +94,7 @@ class OpenRouterProvider(VisionProvider):
                 model=self._model_name,
                 messages=messages,
                 temperature=self._temperature,
+                max_tokens=4000,
                 response_format={"type": "json_object"},
                 timeout=self._timeout
             )
