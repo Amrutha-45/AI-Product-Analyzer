@@ -25,7 +25,7 @@ class Settings(BaseSettings):
 
     # ── AI Provider ───────────────────────────
     ai_provider: str = Field(default="gemini", description="AI Provider (gemini or groq)")
-    ai_model: str = Field(default="llama-3.3-70b-versatile", description="Model name to use")
+    ai_model: str = Field(default="gemini-2.5-flash", description="Model name to use")
     ai_temperature: float = Field(default=0.0, description="Temperature for generation")
     ai_timeout_seconds: int = Field(default=30, description="Timeout for AI calls")
     gemini_api_key: str | None = Field(default=None)
