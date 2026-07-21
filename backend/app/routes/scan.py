@@ -78,19 +78,11 @@ async def submit_scan(
     except ImageValidationError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     except VisionProviderError as exc:
-        settings = get_settings()
-        status = 504 if "timeout" in str(exc).lower() else 502
-        # In development: always expose the real error so we can debug
-        # In production: show a safe generic message
-        if settings.is_production:
-            message = (
-                "Analysis is taking longer than expected. Please try again."
-                if status == 504
-                else "We couldn't analyze this product image. Please try a clearer photo."
-            )
-        else:
-            message = f"[DEV] VisionProviderError ({status}): {str(exc)}"
-        raise HTTPException(status_code=status, detail=message)
+        logger.error("vision_provider_failed", error=str(exc))
+        raise HTTPException(
+            status_code=502,
+            detail=f"We couldn't analyze this product image. Please try a clearer photo. Error: {str(exc)}"
+        )
     except Exception as exc:
         logger.error("scan_route_error", error=str(exc), exc_info=True)
         settings = get_settings()
