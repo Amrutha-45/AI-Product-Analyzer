@@ -99,7 +99,7 @@ class AIScanResult(BaseModel):
     """
     product_name: str | None = None
     brand: str | None = None
-    category: Literal["Food", "Beverage", "Fresh Produce"] = "Food"
+    category: str = "Food"
     barcode: str | None = None
     manufacturing_date: str | None = None
     expiry_date: str | None = None
